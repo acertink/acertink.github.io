@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>制高点by 几何-悬疑推理小说连载与深度解析</title>
+    <meta name="description" content="《制高点by 几何》是一部引人入胜的悬疑推理小说。本站提供正版连载阅读、章节大纲、人物关系分析及读者讨论社区，带你揭开隐藏在城市阴影下的真相。">
+    <meta name="keywords" content="制高点by 几何, 几何小说, 悬疑推理, 网络连载小说, 悬疑小说推荐">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #0f1115;
+            --card-bg: #1a1d24;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #d4af37;
+            --accent-hover: #f9ce46;
+            --border-color: #2f333d;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(15, 17, 21, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #000;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(15,17,21,0.9) 0%, rgba(15,17,21,0.7) 100%), 
+                        url('https://picsum.photos/seed/geometrydark/1920/1080.jpg') no-repeat center center/cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: rgba(212, 175, 55, 0.2);
+            color: var(--accent-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .info-card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .info-card h3 {
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .info-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Chapter List */
+        .chapter-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .chapter-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .chapter-item:hover {
+            border-color: var(--border-color);
+            background-color: #1f232b;
+        }
+
+        .chapter-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chapter-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .chapter-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .chapter-status {
+            font-size: 0.85rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            background-color: rgba(212, 175, 55, 0.1);
+            color: var(--accent-color);
+        }
+
+        /* Synopsis Section */
+        .synopsis-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .synopsis-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        .synopsis-text {
+            color: var(--text-secondary);
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .synopsis-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background-color: #2f333d;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+
+        .author-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            height: fit-content;
+        }
+
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 2px solid var(--accent-color);
+        }
+
+        .author-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .author-bio {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        /* Comments/FAQ */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 6px;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b0c0e;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            color: #555;
+            font-size: 0.85rem;
+            padding-top: 20px;
+            border-top: 1px solid #1f232b;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .synopsis-container {
+                grid-template-columns: 1fr;
+            }
+
+            .chapter-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .chapter-status {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-color)"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                几何阅读<span>空间</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#synopsis">剧情简介</a></li>
+                    <li><a href="#chapters">章节目录</a></li>
+                    <li><a href="#community">读者社区</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="#chapters" class="btn btn-outline">开始阅读</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-tag">全网独家连载</span>
+                <h1>制高点 by 几何</h1>
+                <p>在城市的最高塔楼之下，一场关于权力、谎言与真相的博弈正在悄然展开。当视线触及制高点，你看到的究竟是风景，还是深渊？</p>
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <a href="#chapters" class="btn btn-primary">阅读第一章</a>
+                    <a href="#synopsis" class="btn btn-outline">查看剧情</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Info Grid -->
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>类型</h3>
+                    <p>都市悬疑 / 智力博弈</p>
+                </div>
+                <div class="info-card">
+                    <h3>状态</h3>
+                    <p>持续更新中 (每周二、四)</p>
+                </div>
+                <div class="info-card">
+                    <h3>字数</h3>
+                    <p>约 25 万字</p>
+                </div>
+                <div class="info-card">
+                    <h3>互动</h3>
+                    <p>读者评分 9.2/10</p>
+                </div>
+            </div>
+
+            <!-- Synopsis Section -->
+            <section id="synopsis" class="section">
+                <div class="section-header">
+                    <h2>作品简介</h2>
+                </div>
+                <div class="synopsis-container">
+                    <div class="synopsis-content">
+                        <h3>打破平衡的局</h3>
+                        <p class="synopsis-text">
+                            <strong>《制高点》</strong>是一部聚焦现代都市隐秘博弈的悬疑推理小说。故事发生在一个高度发达的金融城市，主角林默作为一名普通的调查记者，意外卷入了一起看似普通的商业并购案。
+                        </p>
+                        <p class="synopsis-text">
+                            随着调查的深入，他发现这背后牵扯出巨大的利益链条。各方势力在暗处角力，试图争夺城市的“制高点”——那不仅是商业上的垄断地位，更是舆论与权力的绝对控制权。小说通过层层递进的线索，展现了人性在利益面前的挣扎与扭曲，以及真相如何一点点剥开迷雾的过程。
+                        </p>
+                        <p class="synopsis-text">
+                            几何老师以严谨的逻辑架构和冷峻的叙事风格，将读者带入一个充满悬念的世界。每一个章节都是精心设计的谜题，每一个转折都符合逻辑推演，却又出人意料。
+                        </p>
+                        <div class="synopsis-tags">
+                            <span class="tag">#悬疑推理</span>
+                            <span class="tag">#职场博弈</span>
+                            <span class="tag">#反转剧情</span>
+                            <span class="tag">#现实主义</span>
+                        </div>
+                    </div>
+                    <aside class="author-card">
+                        <img src="https://picsum.photos/seed/author/200/200.jpg" alt="作者头像" class="author-avatar">
+                        <div class="author-name">几何</div>
+                        <p class="author-bio">资深网络文学创作者，擅长构建复杂的人物关系网和逻辑严密的悬疑故事。作品风格冷静客观，注重细节描写。</p>
+                        <a href="#" class="btn btn-outline" style="width: 100%; text-align: center;">关注作者</a>
+                    </aside>
+                </div>
+            </section>
+
+            <!-- Chapters Section -->
+            <section id="chapters" class="section">
+                <div class="section-header">
+                    <h2>最新章节</h2>
+                    <p>点击标题阅读完整内容</p>
+                </div>
+                <div class="chapter-list">
+                    <article class="chapter-item">
+                        <div class="chapter-info">
+                            <span class="chapter-title">第 128 章 沉默的证词</span>
+                            <span class="chapter-meta">更新于 2023-10-25 · 热度 3420</span>
+                        </div>
+                        <span class="chapter-status">已完结</span>
+                    </article>
+                    <article class="chapter-item">
+                        <div class="chapter-info">
+                            <span class="chapter-title">第 127 章 视角的盲区</span>
+                            <span class="chapter-meta">更新于 2023-10-22 · 热度 2890</span>
+                        </div>
+                        <span class="chapter-status">连载中</span>
+                    </article>
+                    <article class="chapter-item">
+                        <div class="chapter-info">
+                            <span class="chapter-title">第 126 章 陷阱触发</span>
+                            <span class="chapter-meta">更新于 2023-10-18 · 热度 3105</span>
+                        </div>
+                        <span class="chapter-status">连载中</span>
+                    </article>
+                    <article class="chapter-item">
+                        <div class="chapter-info">
+                            <span class="chapter-title">第 125 章 破晓前的对话</span>
+                            <span class="chapter-meta">更新于 2023-10-15 · 热度 4100</span>
+                        </div>
+                        <span class="chapter-status">连载中</span>
+                    </article>
+                    <article class="chapter-item">
+                        <div class="chapter-info">
+                            <span class="chapter-title">第 124 章 错位的棋局</span>
+                            <span class="chapter-meta">更新于 2023-10-11 · 热度 2990</span>
+                        </div>
+                        <span class="chapter-status">连载中</span>
+                    </article>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="#" class="btn btn-outline">查看全部章节</a>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="community" class="section">
+                <div class="section-header">
+                    <h2>读者常见问题</h2>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">Q: 《制高点》是哪类小说？适合什么人群？</div>
+                        <div class="faq-answer">A: 本作属于都市悬疑推理类小说。如果你喜欢逻辑严密的故事、复杂的职场博弈以及对人性深度的探讨，这部作品非常适合你。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Q: 更新频率是怎样的？</div>
+                        <div class="faq-answer">A: 目前保持每周二、周四更新两章，每章约 3000 字，具体更新时间请关注网站公告。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Q: 如何参与读者讨论？</div>
+                        <div class="faq-answer">A: 您可以在每章下方的评论区发表看法，或加入官方读者群与其他书友交流剧情走向。</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于几何阅读</h4>
+                    <p style="color: #777; font-size: 0.9rem; line-height: 1.6;">
+                        我们致力于为读者提供高质量的原创小说阅读体验，汇聚全网优秀悬疑推理作品。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">作品排行榜</a></li>
+                        <li><a href="#">作者专区</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">悬疑文学网</a></li>
+                        <li><a href="#">推理圈</a></li>
+                        <li><a href="#">作家联盟</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 几何阅读空间. All Rights Reserved. 《制高点by 几何》相关内容版权归作者所有。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                          </html>
