@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="黑龙江省建设网 - 黑龙江省住房和城乡建设厅官方网站，提供行业法规、资质管理、招投标信息、工程质量监督、建筑市场管理及政务服务指南。">
+    <meta name="keywords" content="黑龙江省建设网, 黑龙江住建厅, 建筑资质, 招投标, 工程质量, 建设工程">
+    <title>黑龙江省建设网-黑龙江省住房和城乡建设厅官方网站</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #004494;
+            --accent-color: #f39c12;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f4f6f9;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+            --max-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 12px;
+            color: var(--text-gray);
+            padding: 8px 0;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+
+        .main-header {
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .nav-menu a.active, .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 60px 0;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 16px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Search Bar */
+        .search-section {
+            background-color: var(--white);
+            padding: 30px 0;
+            margin-top: -30px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+        }
+
+        /* Main Content Layout */
+        .main-layout {
+            padding: 40px 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* Left Column: News & Info */
+        .news-list {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .news-item {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            width: 80px;
+            flex-shrink: 0;
+            text-align: center;
+            background-color: #f0f7ff;
+            color: var(--primary-color);
+            border-radius: 4px;
+            padding: 5px 0;
+            margin-right: 15px;
+        }
+
+        .news-date .day {
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .news-date .month {
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .news-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .news-content p {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        /* Right Column: Quick Links & Notices */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+
+        .link-list li {
+            margin-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .link-list li:last-child {
+            border-bottom: none;
+        }
+
+        .link-list a {
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .link-list a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Sections Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .service-item {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-color: var(--primary-color);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .service-desc {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        /* Featured Banner */
+        .banner-section {
+            margin-top: 40px;
+            background-color: #eef2f5;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .banner-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .banner-item {
+            background-color: var(--white);
+            border-radius: 6px;
+            overflow: hidden;
+            height: 200px;
+            position: relative;
+        }
+
+        .banner-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 15px;
+            color: white;
+        }
+
+        .banner-overlay h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .banner-overlay span {
+            font-size: 12px;
+            background-color: var(--accent-color);
+            padding: 2px 6px;
+            border-radius: 2px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            color: var(--white);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-info p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .top-bar {
+                display: none;
+            }
+            
+            .nav-menu {
+                display: none; /* In a real app, use a hamburger menu */
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .banner-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <span>欢迎访问黑龙江省建设网</span>
+            <a href="#">登录</a> | <a href="#">注册</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="main-header">
+                <a href="#" class="logo">
+                    <span class="logo-icon">建</span>
+                    黑龙江省建设网
+                </a>
+                <nav class="nav-menu">
+                    <a href="#" class="active">首页</a>
+                    <a href="#">政务公开</a>
+                    <a href="#">行业管理</a>
+                    <a href="#">村镇建设</a>
+                    <a href="#">人事信息</a>
+                    <a href="#">通知公告</a>
+                    <a href="#">互动交流</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>推进城乡建设高质量发展</h1>
+            <p>提供权威政策解读、行业动态监测、企业资质查询及工程建设管理服务，构建透明、高效、规范的政务服务平台。</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <div class="container">
+        <div class="search-section">
+            <form class="search-box" onsubmit="event.preventDefault();">
+                <input type="text" class="search-input" placeholder="请输入关键字，如：资质申报、招标公告、施工许可证...">
+                <button type="submit" class="btn btn-primary">搜索</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container main-layout">
+        <div class="content-grid">
+            <!-- Left Column: News & Updates -->
+            <div class="main-column">
+                <div class="section-title">
+                    <span>最新动态</span>
+                    <a href="#" style="font-size: 14px; font-weight: normal; color: var(--text-gray);">查看更多 &gt;</a>
+                </div>
+
+                <div class="news-list">
+                    <article class="news-item">
+                        <div class="news-date">
+                            <span class="day">24</span>
+                            <span class="month">10月</span>
+                        </div>
+                        <div class="news-content">
+                            <h3><a href="#">关于开展2023年度黑龙江省建筑业企业资质动态核查工作的通知</a></h3>
+                            <p>各市（地）住建局、省直有关单位：为进一步加强行业监管，规范市场秩序，现将有关核查工作通知如下...</p>
+                        </div>
+                    </article>
+
+                    <article class="news-item">
+                        <div class="news-date">
+                            <span class="day">22</span>
+                            <span class="month">10月</span>
+                        </div>
+                        <div class="news-content">
+                            <h3><a href="#">省住建厅召开全省城镇老旧小区改造工作推进会</a></h3>
+                            <p>会议强调，要坚持以人民为中心的发展思想，因地制宜推进改造工作，切实提升居民生活品质。</p>
+                        </div>
+                    </article>
+
+                    <article class="news-item">
+                        <div class="news-date">
+                            <span class="day">20</span>
+                            <span class="month">10月</span>
+                        </div>
+                        <div class="news-content">
+                            <h3><a href="#">黑龙江省2023年第一批建设工程标准定额执行通知</a></h3>
+                            <p>根据国家及省有关规定，现就我省2023年第一批建设工程标准定额执行有关事项通知如下。</p>
+                        </div>
+                    </article>
+
+                    <article class="news-item">
+                        <div class="news-date">
+                            <span class="day">18</span>
+                            <span class="month">10月</span>
+                        </div>
+                        <div class="news-content">
+                            <h3><a href="#">关于公开征求《黑龙江省绿色建筑评价标准（征求意见稿）》意见的通知</a></h3>
+                            <p>为规范我省绿色建筑评价工作，推动建筑领域碳达峰碳中和，我厅组织编制了《黑龙江省绿色建筑评价标准》...</p>
+                        </div>
+                    </article>
+
+                    <article class="news-item">
+                        <div class="news-date">
+                            <span class="day">15</span>
+                            <span class="month">10月</span>
+                        </div>
+                        <div class="news-content">
+                            <h3><a href="#">全省建筑市场信用体系建设工作会议在哈尔滨召开</a></h3>
+                            <p>会议总结了近年来我省建筑市场信用体系建设工作，并对下一阶段重点工作进行了部署。</p>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Featured Projects Banner -->
+                <div class="banner-section">
+                    <div class="banner-grid">
+                        <div class="banner-item">
+                            <img src="https://picsum.photos/seed/arch1/600/300.jpg" alt="重大工程展示">
+                            <div class="banner-overlay">
+                                <h4>哈尔滨地铁3号线北延工程</h4>
+                                <span>重大工程</span>
+                            </div>
+                        </div>
+                        <div class="banner-item">
+                            <img src="https://picsum.photos/seed/arch2/600/300.jpg" alt="民生工程">
+                            <div class="banner-overlay">
+                                <h4>齐齐哈尔市棚户区改造项目</h4>
+                                <span>民生工程</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Sidebar -->
+            <aside class="sidebar">
+                <!-- Quick Links -->
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">常用服务</h3>
+                    <ul class="link-list">
+                        <li><a href="#">企业资质查询</a></li>
+                        <li><a href="#">从业人员注册查询</a></li>
+                        <li><a href="#">招标投标信息</a></li>
+                        <li><a href="#">工程质量监督备案</a></li>
+                        <li><a href="#">施工许可证查询</a></li>
+                        <li><a href="#">住房公积金查询</a></li>
+                    </ul>
+                </div>
+
+                <!-- Notices -->
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">通知公告</h3>
+                    <ul class="link-list">
+                        <li><a href="#">关于做好2024年元旦春节期间安全生产工作的通知</a></li>
+                        <li><a href="#">2023年全省建筑业统计年报填报说明</a></li>
+                        <li><a href="#">关于调整部分工程造价管理费率的通知</a></li>
+                        <li><a href="#">2023年度第一批建筑业企业资质升级公示</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hot Links -->
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">政策法规</h3>
+                    <ul class="link-list">
+                        <li><a href="#">《黑龙江省建筑市场管理条例》</a></li>
+                        <li><a href="#">《黑龙江省房屋建筑和市政基础设施工程招标投标管理办法》</a></li>
+                        <li><a href="#">《黑龙江省建设工程质量监督管理规定》</a></li>
+                        <li><a href="#">《黑龙江省安全生产管理条例》</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Services Section -->
+        <div class="section-title">
+            <span>重点业务领域</span>
+        </div>
+        <div class="services-grid">
+            <div class="service-item">
+                <div class="service-icon">🏗️</div>
+                <h3 class="service-title">工程建设管理</h3>
+                <p class="service-desc">负责全省房屋建筑和市政基础设施工程的施工许可、招投标监管及质量安全监督工作。</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🏢</div>
+                <h3 class="service-title">建筑业企业资质</h3>
+                <p class="service-desc">规范建筑市场准入，负责建筑业企业资质的审批、升级、换证及动态核查管理。</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🏗️</div>
+                <h3 class="service-title">工程造价管理</h3>
+                <p class="service-desc">发布工程造价信息，制定计价依据，规范建设工程造价咨询行为和计价活动。</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🚧</div>
+                <h3 class="service-title">城镇老旧小区改造</h3>
+                <p class="service-desc">统筹推进全省城镇老旧小区改造工作，改善居民居住条件，提升城市功能品质。</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🏠</div>
+                <h3 class="service-title">住房公积金管理</h3>
+                <p class="service-desc">指导全省住房公积金归集、使用、增值收益分配及风险防范工作，服务住房保障。</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">📜</div>
+                <h3 class="service-title">房地产市场调控</h3>
+                <p class="service-desc">监测房地产市场运行态势，落实“房住不炒”定位，促进房地产市场平稳健康发展。</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="#" class="footer-logo">黑龙江省建设网</a>
+                    <p>地址：黑龙江省哈尔滨市南岗区黄河路99号</p>
+                    <p>邮编：150001</p>
+                    <p>电话：0451-12345678</p>
+                    <p>邮箱：info@hljjs.gov.cn</p>
+                </div>
+                <div class="footer-links">
+                    <h4>网站导航</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">领导之窗</a></li>
+                        <li><a href="#">机构设置</a></li>
+                        <li><a href="#">人事信息</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li><a href="#">在线咨询</a></li>
+                        <li><a href="#">信访投诉</a></li>
+                        <li><a href="#">监督举报</a></li>
+                        <li><a href="#">网站地图</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 黑龙江省住房和城乡建设厅 版权所有 | 黑ICP备xxxxxxxx号</p>
+                <p>技术支持：黑龙江省建设信息中心</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+              </html>
