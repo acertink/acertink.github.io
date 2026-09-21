@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="遂宁汽车网提供遂宁本地最新的二手车交易、新车报价、汽车资讯及维修保养服务。致力于为遂宁车主提供便捷、专业的汽车生活服务平台。">
+    <meta name="keywords" content="遂宁汽车网,遂宁二手车,遂宁新车报价,遂宁汽车维修,遂宁汽车资讯">
+    <title>遂宁汽车网-遂宁本地二手车交易与新车资讯服务平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f0f4f8;
+            --accent-color: #ff9800;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e1e4e8;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: #f9fafb;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+            color: var(--text-light);
+            padding: 8px 0;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-main {
+            padding: 15px 0;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--text-main);
+            font-size: 16px;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+
+        .search-bar {
+            display: flex;
+            flex: 1;
+            max-width: 500px;
+            margin: 0 40px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius) 0 0 var(--radius);
+            outline: none;
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--text-main);
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0056b3 0%, #003d80 100%);
+            color: var(--white);
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255,255,255,0.15);
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            margin-top: -40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .view-more {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .view-more:hover {
+            color: var(--primary-color);
+        }
+
+        /* Car List */
+        .car-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .car-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .car-image {
+            width: 100%;
+            height: 180px;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .car-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .car-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: var(--white);
+            padding: 4px 8px;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .car-info {
+            padding: 15px;
+        }
+
+        .car-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .car-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-light);
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .car-price {
+            font-size: 22px;
+            color: #e63946;
+            font-weight: 700;
+        }
+
+        .car-price small {
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .news-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 14px;
+        }
+
+        .news-list li:last-child {
+            border-bottom: none;
+        }
+
+        .news-list li a {
+            color: var(--text-main);
+        }
+
+        .news-list li a:hover {
+            color: var(--primary-color);
+        }
+
+        .news-list li span {
+            float: right;
+            color: #999;
+            font-size: 12px;
+        }
+
+        /* Service Section */
+        .services-section {
+            background-color: var(--white);
+            padding: 60px 0;
+            margin-bottom: 60px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .service-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: var(--radius);
+            transition: background-color 0.3s;
+        }
+
+        .service-item:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            background-color: #e3f2fd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        .service-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .service-desc {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-main .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .search-bar {
+                margin: 10px 0;
+                width: 100%;
+            }
+            .nav-menu {
+                gap: 15px;
+                font-size: 14px;
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 5px;
+            }
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <span>欢迎来到遂宁汽车网，遂宁本地最专业的汽车服务平台</span>
+                <div class="header-links">
+                    <a href="#">登录</a>
+                    <span style="margin: 0 5px;">|</span>
+                    <a href="#">注册</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <a href="#" class="logo">
+                    遂宁汽车网
+                    <span>遂宁本地汽车门户</span>
+                </a>
+                <div class="search-bar">
+                    <input type="text" placeholder="搜索品牌、车型或关键词...">
+                    <button type="button">搜索</button>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#" class="active">首页</a>
+                    <a href="#">新车资讯</a>
+                    <a href="#">二手车</a>
+                    <a href="#">汽车报价</a>
+                    <a href="#">维修保养</a>
+                    <a href="#">二手车评估</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>遂宁汽车网 - 让买车更简单，让用车更放心</h1>
+                    <p>汇聚遂宁本地海量二手车车源、新车团购优惠及权威汽车资讯，为您提供一站式购车服务。</p>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary">免费验车评估</a>
+                        <a href="#" class="btn btn-secondary">查看热门车型</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <div class="container stats-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">1.2万+</span>
+                    <span class="stat-label">在售车源</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">50万+</span>
+                    <span class="stat-label">累计注册用户</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">300+</span>
+                    <span class="stat-label">合作4S店</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">10年</span>
+                    <span class="stat-label">本地服务经验</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container main-grid">
+            <!-- Left Column: Car Listings -->
+            <section class="content-area">
+                <div class="section-header">
+                    <h2 class="section-title">热卖车源推荐</h2>
+                    <a href="#" class="view-more">查看更多 &raquo;</a>
+                </div>
+
+                <div class="car-list">
+                    <!-- Car Card 1 -->
+                    <article class="car-card">
+                        <div class="car-image">
+                            <img src="https://picsum.photos/seed/car1/400/300" alt="2023款 丰田凯美瑞 2.0S 精英版">
+                            <span class="car-badge">个人转手</span>
+                        </div>
+                        <div class="car-info">
+                            <h3 class="car-title"><a href="#">2023款 丰田凯美瑞 2.0S 精英版</a></h3>
+                            <div class="car-meta">
+                                <span>2023年10月</span>
+                                <span>1.8万公里</span>
+                                <span>自动挡</span>
+                            </div>
+                            <div class="car-price">¥ 18.5万 <small>报价</small></div>
+                        </div>
+                    </article>
+
+                    <!-- Car Card 2 -->
+                    <article class="car-card">
+                        <div class="car-image">
+                            <img src="https://picsum.photos/seed/car2/400/300" alt="2022款 大众帕萨特 330TSI 领先型">
+                            <span class="car-badge">商家车源</span>
+                        </div>
+                        <div class="car-info">
+                            <h3 class="car-title"><a href="#">2022款 大众帕萨特 330TSI 领先型</a></h3>
+                            <div class="car-meta">
+                                <span>2022年05月</span>
+                                <span>3.5万公里</span>
+                                <span>自动挡</span>
+                            </div>
+                            <div class="car-price">¥ 18.2万 <small>报价</small></div>
+                        </div>
+                    </article>
+
+                    <!-- Car Card 3 -->
+                    <article class="car-card">
+                        <div class="car-image">
+                            <img src="https://picsum.photos/seed/car3/400/300" alt="2023款 本田CR-V 240TURBO 豪华版">
+                            <span class="car-badge">个人转手</span>
+                        </div>
+                        <div class="car-info">
+                            <h3 class="car-title"><a href="#">2023款 本田CR-V 240TURBO 豪华版</a></h3>
+                            <div class="car-meta">
+                                <span>2023年08月</span>
+                                <span>0.8万公里</span>
+                                <span>CVT无级</span>
+                            </div>
+                            <div class="car-price">¥ 21.8万 <small>报价</small></div>
+                        </div>
+                    </article>
+
+                    <!-- Car Card 4 -->
+                    <article class="car-card">
+                        <div class="car-image">
+                            <img src="https://picsum.photos/seed/car4/400/300" alt="2021款 宝马3系 320Li M运动套装">
+                            <span class="car-badge">商家车源</span>
+                        </div>
+                        <div class="car-info">
+                            <h3 class="car-title"><a href="#">2021款 宝马3系 320Li M运动套装</a></h3>
+                            <div class="car-meta">
+                                <span>2021年12月</span>
+                                <span>6.2万公里</span>
+                                <span>手自一体</span>
+                            </div>
+                            <div class="car-price">¥ 26.5万 <small>报价</small></div>
+                        </div>
+                    </article>
+
+                    <!-- Car Card 5 -->
+                    <article class="car-card">
+                        <div class="car-image">
+                            <img src="https://picsum.photos/seed/car5/400/300" alt="2020款 奥迪A4L 40TFSI 时尚动感型">
+                            <span class="car-badge">个人转手</span>
+                        </div>
+                        <div class="car-info">
+                            <h3 class="car-title"><a href="#">2020款 奥迪A4L 40TFSI 时尚动感型</a></h3>
+                            <div class="car-meta">
+                                <span>2020年06月</span>
+                                <span>8.5万公里</span>
+                                <span>双离合</span>
+                            </div>
+                            <div class="car-price">¥ 23.8万 <small>报价</small></div>
+                        </div>
+                    </article>
+
+                    <!-- Car Card 6 -->
+                    <article class="car-card">
+                        <div class="car-image">
+                            <img src="https://picsum.photos/seed/car6/400/300" alt="2022款 埃安AION S Plus 70尊享版">
+                            <span class="car-badge">商家车源</span>
+                        </div>
+                        <div class="car-info">
+                            <h3 class="car-title"><a href="#">2022款 埃安AION S Plus 70尊享版</a></h3>
+                            <div class="car-meta">
+                                <span>2022年03月</span>
+                                <span>2.1万公里</span>
+                                <span>电动车</span>
+                            </div>
+                            <div class="car-price">¥ 13.6万 <small>报价</small></div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Right Column: Sidebar -->
+            <aside class="sidebar">
+                <!-- Hot News -->
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">本地车市资讯</h3>
+                    <ul class="news-list">
+                        <li>
+                            <a href="#">遂宁车展信息：2024春季汽车博览会即将开幕</a>
+                            <span>03-15</span>
+                        </li>
+                        <li>
+                            <a href="#">油价调整最新消息：今日24时起汽柴油价格上调</a>
+                            <span>03-14</span>
+                        </li>
+                        <li>
+                            <a href="#">2024年新能源汽车购置税减免政策详解</a>
+                            <span>03-13</span>
+                        </li>
+                        <li>
+                            <a href="#">遂宁交警严查“三超一疲劳”，安全驾驶需牢记</a>
+                            <span>03-12</span>
+                        </li>
+                        <li>
+                            <a href="#">新手买车必看：如何辨别二手车车况好坏？</a>
+                            <span>03-11</span>
+                        </li>
+                        <li>
+                            <a href="#">各大品牌4S店春季大促，首付低至0元起</a>
+                            <span>03-10</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Brand Links -->
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">热门品牌</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        <a href="#" style="background:#f4f4f4; padding:5px 10px; border-radius:4px; font-size:12px;">一汽大众</a>
+                        <a href="#" style="background:#f4f4f4; padding:5px 10px; border-radius:4px; font-size:12px;">广汽丰田</a>
+                        <a href="#" style="background:#f4f4f4; padding:5px 10px; border-radius:4px; font-size:12px;">东风日产</a>
+                        <a href="#" style="background:#f4f4f4; padding:5px 10px; border-radius:4px; font-size:12px;">长安福特</a>
+                        <a href="#" style="background:#f4f4f4; padding:5px 10px; border-radius:4px; font-size:12px;">上汽通用</a>
+                        <a href="#" style="background:#f4f4f4; padding:5px 10px; border-radius:4px; font-size:12px;">比亚迪</a>
+                        <a href="#" style="background:#f4f4f4; padding:5px 10px; border-radius:4px; font-size:12px;">特斯拉</a>
+                        <a href="#" style="background:#f4f4f4; padding:5px 10px; border-radius:4px; font-size:12px;">宝马</a>
+                    </div>
+                </div>
+
+                <!-- App Download -->
+                <div class="sidebar-widget" style="text-align: center;">
+                    <h3 class="sidebar-title">下载APP</h3>
+                    <p style="font-size: 12px; color: #666; margin-bottom: 15px;">随时随地看车、买车、卖车</p>
+                    <div style="display: flex; justify-content: center; gap: 10px;">
+                        <div style="width: 100px; height: 100px; background: #eee; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #888;">
+                            二维码<br>区域
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">一站式汽车服务</h2>
+                </div>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <div class="service-icon">🔍</div>
+                        <h4 class="service-name">二手车评估</h4>
+                        <p class="service-desc">专业检测师上门评估，透明公正</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🏦</div>
+                        <h4 class="service-name">汽车贷款</h4>
+                        <p class="service-desc">低首付、低利率，轻松购车</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🛡️</div>
+                        <h4 class="service-name">车辆过户</h4>
+                        <p class="service-desc">一站式代办，省心省力</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🔧</div>
+                        <h4 class="service-name">维修保养</h4>
+                        <p class="service-desc">本地合作维修厂，价格透明</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🚗</div>
+                        <h4 class="service-name">汽车保险</h4>
+                        <p class="service-desc">车险团购，保费直降</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured News Section -->
+        <div class="container" style="margin-bottom: 60px;">
+            <div class="section-header">
+                <h2 class="section-title">热门专题</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <div style="position: relative; border-radius: var(--radius); overflow: hidden; height: 200px;">
+                    <img src="https://picsum.photos/seed/tech1/600/300" style="width: 100%; height: 100%; object-fit: cover;" alt="新能源车趋势">
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 20px; color: white;">
+                        <h3 style="font-size: 18px;">2024年新能源车选购指南</h3>
+                    </div>
+                </div>
+                <div style="position: relative; border-radius: var(--radius); overflow: hidden; height: 200px;">
+                    <img src="https://picsum.photos/seed/tech2/600/300" style="width: 100%; height: 100%; object-fit: cover;" alt="二手车避坑">
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 20px; color: white;">
+                        <h3 style="font-size: 18px;">二手车交易避坑全攻略</h3>
+                    </div>
+                </div>
+                <div style="position: relative; border-radius: var(--radius); overflow: hidden; height: 200px;">
+                    <img src="https://picsum.photos/seed/tech3/600/300" style="width: 100%; height: 100%; object-fit: cover;" alt="新车优惠">
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 20px; color: white;">
+                        <h3 style="font-size: 18px;">春季新车上市与优惠汇总</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">遂宁汽车网</a>
+                    <p class="footer-desc">遂宁汽车网是遂宁本地领先的汽车垂直门户网站，致力于为遂宁市民提供最新、最全的汽车资讯、二手车交易信息及专业的汽车服务。我们连接了本地买家、卖家及服务商，构建诚信、高效的汽车生活圈。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">网站简介</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">广告服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务项目</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">二手车买卖</a></li>
+                        <li><a href="#">新车团购</a></li>
+                        <li><a href="#">车辆评估</a></li>
+                        <li><a href="#">汽车保险</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">用户注册</a></li>
+                        <li><a href="#">发布车源</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 遂宁汽车网 版权所有 | ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
