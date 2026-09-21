@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="专业刷机助手官网，提供安卓手机刷机、固件下载、解锁 Bootloader 及救砖教程。安全、稳定、高效的刷机工具，助您轻松解决手机卡顿、变砖问题。">
+    <meta name="keywords" content="刷机助手, 手机刷机, 安卓刷机, 固件下载, 解锁Bootloader, 救砖工具, 刷机教程">
+    <title>刷机助手-专业安卓手机刷机、解锁与救砖工具平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --primary-hover: #004494;
+            --accent-color: #ff9800;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .section {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .text-center { text-align: center; }
+        .flex-center { display: flex; justify-content: center; align-items: center; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-md); }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .btn-download {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .btn-download:hover {
+            background-color: var(--primary-hover);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 28px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f0f7ff;
+        }
+
+        /* Features */
+        .feature-card {
+            background: var(--card-bg);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #e3f2fd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Tools Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .tool-item {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: var(--spacing-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-tag {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-bottom-left-radius: var(--radius);
+        }
+
+        .tool-title {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tool-desc {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            font-size: 0.9rem;
+        }
+
+        .tool-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .tool-link::after {
+            content: '→';
+            margin-left: 4px;
+            transition: margin-left 0.2s;
+        }
+
+        .tool-link:hover::after {
+            margin-left: 8px;
+        }
+
+        /* Guide List */
+        .guide-list {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .guide-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-lg);
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.2s;
+        }
+
+        .guide-item:last-child {
+            border-bottom: none;
+        }
+
+        .guide-item:hover {
+            background-color: #fafafa;
+        }
+
+        .guide-info h4 {
+            margin-bottom: 4px;
+        }
+
+        .guide-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Safety Warning */
+        .safety-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            border-radius: 4px;
+        }
+
+        .safety-box h4 {
+            color: #856404;
+            margin-bottom: 4px;
+        }
+
+        .safety-box p {
+            color: #856404;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-col h4 {
+            margin-bottom: var(--spacing-md);
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: var(--spacing-md) 0;
+                gap: var(--spacing-md);
+            }
+
+            nav ul {
+                gap: var(--spacing-md);
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                <span>刷机助手</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#tools">工具下载</a></li>
+                    <li><a href="#firmware">固件库</a></li>
+                    <li><a href="#guide">教程中心</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#download" class="btn-download">立即下载</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>让手机焕发新生</h1>
+            <p>安全、稳定、高效的安卓手机刷机解决方案。支持解锁 Bootloader、刷入 Recovery、修复系统及救砖。无论您的设备是否变砖，都能在这里找到解决方案。</p>
+            <div class="hero-buttons">
+                <a href="#download" class="btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    下载最新版
+                </a>
+                <a href="#guide" class="btn-secondary">查看新手指南</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <h3>一键刷机</h3>
+                    <p>智能识别设备型号，自动匹配官方或第三方固件，一键完成刷机流程，无需复杂操作。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3>安全校验</h3>
+                    <p>内置完整性校验机制，防止刷入损坏固件导致变砖，保障手机硬件与数据安全。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <h3>数据保护</h3>
+                    <p>支持备份重要联系人、短信及应用数据。在刷机前自动创建系统快照，可随时回滚。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                    </div>
+                    <h3>救砖修复</h3>
+                    <p>针对无法开机、无限重启等变砖状态，提供深层数据恢复与底层修复工具。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools & Firmware -->
+    <section id="tools" class="section" style="background-color: #fff;">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: var(--spacing-lg);">核心工具与固件</h2>
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <span class="tool-tag">推荐</span>
+                    <div class="tool-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        刷机助手 PC版
+                    </div>
+                    <p class="tool-desc">适用于 Windows 10/11 的桌面端刷机工具，功能全面，适合深度玩家。</p>
+                    <a href="#" class="tool-link">下载 v3.5.2 (1.2GB)</a>
+                </div>
+
+                <div class="tool-item">
+                    <span class="tool-tag">官方</span>
+                    <div class="tool-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        官方固件库
+                    </div>
+                    <p class="tool-desc">包含华为、小米、OPPO、vivo 等主流品牌的官方原厂包及第三方 ROM。</p>
+                    <a href="#" class="tool-link">浏览固件列表</a>
+                </div>
+
+                <div class="tool-item">
+                    <span class="tool-tag">进阶</span>
+                    <div class="tool-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                        解锁 Bootloader
+                    </div>
+                    <p class="tool-desc">提供官方解锁申请指引及第三方解锁工具，助您开启 Root 权限。</p>
+                    <a href="#" class="tool-link">查看解锁教程</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Section -->
+    <section id="guide" class="section">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <h2 style="margin-bottom: var(--spacing-md);">新手必读教程</h2>
+                    <div class="guide-list">
+                        <div class="guide-item">
+                            <div class="guide-info">
+                                <h4>如何使用刷机助手刷机？</h4>
+                                <span class="guide-meta">步骤：3步 | 难度：简单</span>
+                            </div>
+                            <a href="#" class="tool-link">阅读</a>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-info">
+                                <h4>手机变砖了怎么办？</h4>
+                            </div>
+                            <a href="#" class="tool-link">阅读</a>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-info">
+                                <h4>刷机前需要准备什么？</h4>
+                            </div>
+                            <a href="#" class="tool-link">阅读</a>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-info">
+                                <h4>刷机后如何恢复数据？</h4>
+                            </div>
+                            <a href="#" class="tool-link">阅读</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 style="margin-bottom: var(--spacing-md);">最新固件更新</h2>
+                    <div class="guide-list">
+                        <div class="guide-item">
+                            <div class="guide-info">
+                                <h4>小米 14 Ultra 最新版</h4>
+                                <span class="guide-meta">更新日期：2023-10-25 | 版本：V14.0.5.0</span>
+                            </div>
+                            <a href="#" class="tool-link">下载</a>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-info">
+                                <h4>OPPO Find X7 固件包</h4>
+                            </div>
+                            <a href="#" class="tool-link">下载</a>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-info">
+                                <h4>华为 Mate 60 Pro 官方包</h4>
+                            </div>
+                            <a href="#" class="tool-link">下载</a>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-info">
+                                <h4>Vivo X100 系统优化包</h4>
+                            </div>
+                            <a href="#" class="tool-link">下载</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="safety-box">
+                <h4>⚠️ 重要安全提示</h4>
+                <p>刷机操作涉及修改手机底层系统，存在一定风险。请确保电量充足（建议 50% 以上），并在操作前备份数据。非官方渠道下载的固件可能存在安全隐患，请务必谨慎使用。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section" style="background-color: #fff;">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: var(--spacing-lg);">常见问题 (FAQ)</h2>
+            <div class="grid-2">
+                <div>
+                    <h3 style="margin-bottom: 8px;">刷机会导致手机变砖吗？</h3>
+                    <p style="color: var(--text-secondary);">如果操作正确并刷入兼容的固件，手机不会变砖。但刷入不兼容的 ROM 或中断操作可能导致无法开机。建议新手先阅读教程，并使用本站的“一键救砖”功能。</p>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 8px;">解锁 Bootloader 会影响保修吗？</h3>
+                    <p style="color: var(--text-secondary);">是的，解锁 Bootloader 通常会使手机失去官方保修资格。这是官方安全机制的一部分，请根据自身需求决定是否解锁。</p>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 8px;">支持哪些品牌的手机？</h3>
+                    <p style="color: var(--text-secondary);">目前支持华为、小米、OPPO、vivo、三星、荣耀、魅族等绝大多数安卓品牌，涵盖从低端到旗舰的各类机型。</p>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 8px;">刷机后丢失的数据如何找回？</h3>
+                    <p style="color: var(--text-secondary);">如果未提前备份，恢复难度较大。部分第三方 ROM 提供了数据迁移功能，但成功率取决于具体机型和系统版本。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>刷机助手</h4>
+                    <p style="font-size: 0.9rem; color: #bdc3c7;">致力于为安卓用户提供最专业、最安全的刷机与系统维护服务。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">使用协议</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门机型</h4>
+                    <ul>
+                        <li><a href="#">小米 14 系列</a></li>
+                        <li><a href="#">华为 Mate 60 系列</a></li>
+                        <li><a href="#">OPPO Find X7 系列</a></li>
+                        <li><a href="#">vivo X100 系列</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 刷机助手 版权所有. 本站资源仅供学习交流使用，请支持正版。
+            </div>
+        </div>
+    </footer>
+
+</body>
+                          </html>
