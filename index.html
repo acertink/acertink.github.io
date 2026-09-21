@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嘿嘿卡盟-安全稳定的游戏点卡与数字商品交易平台</title>
+    <meta name="description" content="嘿嘿卡盟提供各类主流游戏的点卡充值、游戏币交易、虚拟物品出售及会员服务，支持支付宝、微信支付，24小时在线客服，安全快捷，拒绝黑卡，致力于为玩家提供极致的游戏消费体验。">
+    <meta name="keywords" content="嘿嘿卡盟,点卡充值,游戏币交易,虚拟商品,折扣商城,网游装备">
+    <style>
+        :root {
+            --primary-color: #00c6ff;
+            --secondary-color: #0072ff;
+            --accent-color: #ff4757;
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --text-main: #ffffff;
+            --text-sub: #b0b0b0;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-menu a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: var(--radius);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 198, 255, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 198, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 198, 255, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, rgba(18, 18, 18, 0) 0%, var(--bg-dark) 100%),
+                        url('https://picsum.photos/seed/tech/1920/600') no-repeat center center/cover;
+            padding: 80px var(--spacing-md) 60px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: var(--spacing-md);
+            background: linear-gradient(to right, #fff, #b0b0b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-sub);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px;
+            padding-right: 120px;
+            border-radius: 50px;
+            border: 1px solid #333;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 16px;
+            backdrop-filter: blur(5px);
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 6px;
+            top: 6px;
+            bottom: 6px;
+            padding: 0 24px;
+            border-radius: 40px;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-lg) var(--spacing-md);
+            flex: 1;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: var(--spacing-lg);
+            border-left: 4px solid var(--primary-color);
+            padding-left: var(--spacing-md);
+        }
+
+        .section-title h2 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .section-title a {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        .section-title a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Grid Layouts */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #2a2a2a;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: #333;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background-color: #2a2a2a;
+        }
+
+        .card-body {
+            padding: var(--spacing-md);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 12px;
+            color: var(--primary-color);
+            background: rgba(0, 198, 255, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            width: fit-content;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: var(--text-sub);
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #333;
+            padding-top: 12px;
+            margin-top: auto;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .price small {
+            font-size: 12px;
+            color: var(--text-sub);
+            font-weight: 400;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .sidebar-box {
+            background-color: var(--bg-card);
+            border-radius: var(--radius);
+            padding: var(--spacing-md);
+            border: 1px solid #2a2a2a;
+        }
+
+        .sidebar-box h3 {
+            font-size: 16px;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: 8px;
+            border-bottom: 1px solid #333;
+        }
+
+        .notice-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #2a2a2a;
+            font-size: 13px;
+            color: var(--text-sub);
+            display: flex;
+            align-items: center;
+        }
+
+        .notice-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            margin-right: 8px;
+        }
+
+        .notice-list li:last-child {
+            border-bottom: none;
+        }
+
+        .hot-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 13px;
+        }
+
+        .hot-rank {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-right: 8px;
+        }
+
+        /* Features */
+        .features {
+            background-color: #1a1a1a;
+            padding: var(--spacing-lg) var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .feature-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto var(--spacing-md);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--primary-color);
+        }
+
+        .feature-item h4 {
+            margin-bottom: 4px;
+            font-size: 16px;
+        }
+
+        .feature-item p {
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        /* FAQ */
+        .faq-item {
+            background-color: var(--bg-card);
+            margin-bottom: 12px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid #2a2a2a;
+        }
+
+        .faq-question {
+            padding: 16px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .faq-answer {
+            padding: 0 20px 16px;
+            color: var(--text-sub);
+            font-size: 14px;
+            display: none;
+            border-top: 1px solid #2a2a2a;
+            padding-top: 16px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 60px var(--spacing-md) 20px;
+            margin-top: auto;
+            border-top: 1px solid #222;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-sub);
+            font-size: 13px;
+            margin-top: 12px;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-sub);
+            font-size: 13px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #1a1a1a;
+            color: #555;
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .grid-2, .feature-grid, .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box {
+                max-width: 100%;
+            }
+
+            .search-box button {
+                padding: 0 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                <span>嘿嘿卡盟</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">游戏点卡</a>
+                <a href="#">游戏币</a>
+                <a href="#">会员充值</a>
+                <a href="#">虚拟物品</a>
+                <a href="#">代理招商</a>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>全网低价 · 安全稳定 · 极速发货</h1>
+                <p>专注于游戏点卡、游戏币、会员充值及各类虚拟商品交易，为您提供最优质的数字消费服务。</p>
+                <div class="search-box">
+                    <input type="text" placeholder="搜索游戏名称、点卡类型...">
+                    <button class="btn btn-primary">立即搜索</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Links -->
+        <section class="container">
+            <div class="grid-4" style="margin-bottom: var(--spacing-lg);">
+                <a href="#" class="card" style="align-items: center; justify-content: center; padding: 20px;">
+                    <div style="font-size: 24px; margin-bottom: 8px;">🎮</div>
+                    <div style="font-size: 14px; color: var(--text-main);">游戏点卡</div>
+                </a>
+                <a href="#" class="card" style="align-items: center; justify-content: center; padding: 20px;">
+                    <div style="font-size: 24px; margin-bottom: 8px;">💰</div>
+                    <div style="font-size: 14px; color: var(--text-main);">游戏币交易</div>
+                </a>
+                <a href="#" class="card" style="align-items: center; justify-content: center; padding: 20px;">
+                    <div style="font-size: 24px; margin-bottom: 8px;">👑</div>
+                    <div style="font-size: 14px; color: var(--text-main);">会员充值</div>
+                </a>
+                <a href="#" class="card" style="align-items: center; justify-content: center; padding: 20px;">
+                    <div style="font-size: 24px; margin-bottom: 8px;">📦</div>
+                    <div style="font-size: 14px; color: var(--text-main);">虚拟装备</div>
+                </a>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="grid-2">
+                <!-- Left Column: Product List -->
+                <div>
+                    <div class="section-title">
+                        <h2>热门商品</h2>
+                        <a href="#">查看更多 &rarr;</a>
+                    </div>
+                    
+                    <div class="grid-4">
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/game1/400/250" alt="王者荣耀点卡" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag">手游充值</span>
+                                <h3 class="card-title">王者荣耀 [648]点券充值</h3>
+                                <p class="card-desc">官方直充，秒到账，支持微信/支付宝支付。</p>
+                                <div class="card-footer">
+                                    <div class="price">¥6.48<small>/张</small></div>
+                                    <button class="btn btn-primary" style="padding: 6px 12px; font-size: 12px;">立即购买</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/game2/400/250" alt="英雄联盟点卡" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag">端游充值</span>
+                                <h3 class="card-title">英雄联盟 [6000]点券卡</h3>
+                                <p class="card-desc">全服通用，自动发货，安全无风险。</p>
+                                <div class="card-footer">
+                                    <div class="price">¥59.90<small>/张</small></div>
+                                    <button class="btn btn-primary" style="padding: 6px 12px; font-size: 12px;">立即购买</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/game3/400/250" alt="绝地求生" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag">端游充值</span>
+                                <h3 class="card-title">绝地求生 [100]G点卡</h3>
+                                <p class="card-desc">PUBG官方货币，直接添加至账户。</p>
+                                <div class="card-footer">
+                                    <div class="price">¥6.50<small>/张</small></div>
+                                    <button class="btn btn-primary" style="padding: 6px 12px; font-size: 12px;">立即购买</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/game4/400/250" alt="原神充值" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag">手游充值</span>
+                                <h3 class="card-title">原神 [648]创世结晶</h3>
+                                <p class="card-desc">全球服通用，支持多平台充值。</p>
+                                <div class="card-footer">
+                                    <div class="price">¥6.48<small>/张</small></div>
+                                    <button class="btn btn-primary" style="padding: 6px 12px; font-size: 12px;">立即购买</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="section-title" style="margin-top: 40px;">
+                        <h2>折扣专区</h2>
+                        <a href="#">更多优惠 &rarr;</a>
+                    </div>
+                    
+                    <div class="grid-4">
+                        <article class="card">
+                            <div class="card-body" style="padding: 12px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span class="card-tag" style="background: rgba(255, 71, 87, 0.1); color: var(--accent-color);">限时特惠</span>
+                                    <span style="color: var(--accent-color); font-weight: bold;">-20%</span>
+                                </div>
+                                <h3 class="card-title" style="font-size: 14px;">梦幻西游 [10点]卡</h3>
+                                <div class="card-footer" style="border: none; padding-top: 0; margin-top: 0;">
+                                    <div class="price">¥0.09<small>/张</small></div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-body" style="padding: 12px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span class="card-tag" style="background: rgba(255, 71, 87, 0.1); color: var(--accent-color);">限时特惠</span>
+                                    <span style="color: var(--accent-color); font-weight: bold;">-15%</span>
+                                </div>
+                                <h3 class="card-title" style="font-size: 14px;">地下城与勇士 [10点]卡</h3>
+                                <div class="card-footer" style="border: none; padding-top: 0; margin-top: 0;">
+                                    <div class="price">¥0.09<small>/张</small></div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-body" style="padding: 12px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span class="card-tag" style="background: rgba(255, 71, 87, 0.1); color: var(--accent-color);">限时特惠</span>
+                                    <span style="color: var(--accent-color); font-weight: bold;">-10%</span>
+                                </div>
+                                <h3 class="card-title" style="font-size: 14px;">魔兽世界 [60点]卡</h3>
+                                <div class="card-footer" style="border: none; padding-top: 0; margin-top: 0;">
+                                    <div class="price">¥4.50<small>/张</small></div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-body" style="padding: 12px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span class="card-tag" style="background: rgba(255, 71, 87, 0.1); color: var(--accent-color);">限时特惠</span>
+                                    <span style="color: var(--accent-color); font-weight: bold;">-25%</span>
+                                </div>
+                                <h3 class="card-title" style="font-size: 14px;">崩坏：星穹铁道 [648]星穹</h3>
+                                <div class="card-footer" style="border: none; padding-top: 0; margin-top: 0;">
+                                    <div class="price">¥6.48<small>/张</small></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Right Column: Sidebar -->
+                <aside>
+                    <!-- System Notice -->
+                    <div class="sidebar-box">
+                        <h3>📢 系统公告</h3>
+                        <ul class="notice-list">
+                            <li><a href="#">【维护通知】服务器将于10月1日进行例行维护</a></li>
+                            <li><a href="#">【新上架】《永劫无间》全服点券充值上线</a></li>
+                            <li><a href="#">【活动通知】注册即送5元无门槛优惠券</a></li>
+                            <li><a href="#">【安全提示】请勿向陌生人转账，谨防诈骗</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Hot Ranking -->
+                    <div class="sidebar-box">
+                        <h3>🔥 热销排行</h3>
+                        <ul class="hot-list">
+                            <li><span class="hot-rank">1</span><span>王者荣耀点券</span></li>
+                            <li><span class="hot-rank">2</span><span>原神创世结晶</span></li>
+                            <li><span class="hot-rank">3</span><span>和平精英点券</span></li>
+                            <li><span class="hot-rank">4</span><span>英雄联盟点券</span></li>
+                            <li><span class="hot-rank">5</span><span>梦幻西游点卡</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <div class="sidebar-box">
+                        <h3>💳 支付方式</h3>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <div style="background: #2a2a2a; padding: 8px 12px; border-radius: 4px; font-size: 12px;">支付宝</div>
+                            <div style="background: #2a2a2a; padding: 8px 12px; border-radius: 4px; font-size: 12px;">微信支付</div>
+                            <div style="background: #2a2a2a; padding: 8px 12px; border-radius: 4px; font-size: 12px;">云闪付</div>
+                            <div style="background: #2a2a2a; padding: 8px 12px; border-radius: 4px; font-size: 12px;">Q币支付</div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Features Section -->
+            <section class="features">
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h4>极速发货</h4>
+                        <p>人工/系统双重审核，充值订单自动秒发</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🛡️</div>
+                        <h4>安全交易</h4>
+                        <p>拒绝黑卡风险，资金担保交易，保障权益</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💰</div>
+                        <h4>价格优势</h4>
+                        <p>整合全网渠道，提供最低市场价格</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💬</div>
+                        <h4>在线客服</h4>
+                        <p>7x24小时专人服务，随时解决售后问题</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="container" style="max-width: 800px;">
+                <div class="section-title">
+                    <h2>常见问题 (FAQ)</h2>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">充值后多久到账？</div>
+                    <div class="faq-answer">大部分游戏点券支持秒到账，系统自动处理；部分特殊游戏或大额订单可能需要1-5分钟的人工审核时间。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">支持哪些支付方式？</div>
+                    <div class="faq-answer">本平台支持支付宝、微信支付、云闪付等多种主流支付方式，方便快捷。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">如果充值失败怎么办？</div>
+                    <div class="faq-answer">请先联系在线客服，提供订单号，我们会为您重新充值或全额退款。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">可以代理加盟吗？</div>
+                    <div class="faq-answer">欢迎加入我们的代理团队，提供详细的代理政策和收益分成方案。</div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <span>嘿嘿卡盟</span>
+                </a>
+                <p>专注于游戏虚拟物品交易，致力于为广大玩家提供安全、稳定、低价的数字商品服务。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">游戏点卡</a></li>
+                    <li><a href="#">游戏币</a></li>
+                    <li><a href="#">会员充值</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">充值说明</a></li>
+                    <li><a href="#">售后政策</a></li>
+                    <li><a href="#">代理加盟</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">公司简介</a></li>
+                    <li><a href="#">联系我们</a></li>
+                    <li><a href="#">隐私协议</a></li>
+                    <li><a href="#">服务条款</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 嘿嘿卡盟 版权所有. 本站所有资源仅供学习交流，请勿用于商业用途。</p>
+        </div>
+    </footer>
+
+    <!-- Simple FAQ Interaction Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+                                  </html>
