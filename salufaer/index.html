@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="萨鲁法尔 - 魔兽世界经典角色百科、背景故事、角色演变及同人作品集锦。深入了解这位兽人萨满的传奇生涯与最终宿命。">
+    <meta name="keywords" content="萨鲁法尔, 魔兽世界, 魔兽角色, 兽人, 萨满, 战争之王">
+    <title>萨鲁法尔-魔兽世界经典角色百科与传奇故事</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8b0000; /* 深红 */
+            --secondary-color: #4a3b2a; /* 深褐 */
+            --accent-color: #d4af37; /* 金色 */
+            --text-color: #333;
+            --bg-color: #f4f1ea;
+            --card-bg: #ffffff;
+            --font-main: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            color: #ddd;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/saurfang/1600/900') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 0 auto;
+        }
+
+        /* Character Overview */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .character-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .character-avatar {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            background-color: #ddd;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            text-align: left;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .stats-item strong {
+            display: block;
+            color: var(--primary-color);
+        }
+
+        .bio-text {
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 30px;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -39px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px var(--primary-color);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        /* Featured Works / Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            aspect-ratio: 16/9;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            background-color: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        summary {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--secondary-color);
+            list-style: none;
+            position: relative;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        .faq-content {
+            padding: 0 20px 20px 20px;
+            color: #555;
+            border-top: 1px solid #eee;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #aaa;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-wrapper {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span>⚔️</span> 魔兽百科
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">角色主页</a></li>
+                    <li><a href="#story">生平故事</a></li>
+                    <li><a href="#gallery">经典战役</a></li>
+                    <li><a href="#faq">玩家问答</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>萨鲁法尔</h1>
+                <p>战争之王 · 铁炉堡的守护者 · 殊死一战的英雄</p>
+                <div class="hero-btns">
+                    <a href="#story" class="btn">阅读生平</a>
+                    <a href="#gallery" class="btn btn-outline">查看战役</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Character Overview -->
+        <section id="overview" class="container">
+            <div class="section-title">
+                <h2>角色档案</h2>
+            </div>
+            <div class="overview-grid">
+                <div class="character-card">
+                    <img src="https://picsum.photos/seed/saurfang_portrait/400/500" alt="萨鲁法尔头像" class="character-avatar">
+                    <h3>布洛克·萨鲁法尔</h3>
+                    <p style="color: #666; margin-bottom: 15px;">Brok'var Saurfang</p>
+                    <div class="stats">
+                        <div class="stats-item"><strong>种族</strong> 兽人</div>
+                        <div class="stats-item"><strong>职业</strong> 萨满 / 战士</div>
+                        <div class="stats-item"><strong>所属</strong> 铁炉堡</div>
+                        <div class="stats-item"><strong>阵营</strong> 联盟</div>
+                    </div>
+                </div>
+                <article>
+                    <h3>简介</h3>
+                    <p class="bio-text">
+                        布洛克·萨鲁法尔，通常被称为“大酋长”或“战争之王”，是部族中经验最丰富的英雄之一。他曾在第一次、第二次和第三次战争中作为部落的核心指挥官。他是一位性格坚毅、忠诚的领袖，以卓越的军事才能和对部族的绝对奉献而闻名。
+                    </p>
+                    <br>
+                    <p class="bio-text">
+                        在部落被击败并囚禁在德拉诺后，萨鲁法尔是少数保持清醒并意识到古尔丹所带来灾难性后果的兽人之一。在回到艾泽拉斯后，他成为了部落重建的关键人物。尽管他最初对加入联盟感到犹豫，但在大灾变期间，为了阻止灭世者尤格-萨隆的阴谋，他最终选择加入联盟，并成为了铁炉堡的荣誉公民。他在《军团再临》版本中不幸牺牲，但他的精神继续激励着部落与联盟的战士们。
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Story Timeline -->
+        <section id="story" style="background-color: #e8e4d9;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>传奇生涯</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">第一次战争</div>
+                        <h3 class="timeline-title">部族的崛起</h3>
+                        <p>作为加尔鲁什·地狱咆哮的副官，萨鲁法尔参与了对抗人类的战役，展现了无畏的勇气和指挥才能。</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">第二次战争</div>
+                        <h3 class="timeline-title">黑石山决战</h3>
+                        <p>在黑石山，萨鲁法尔与黑石兽人首领达纳斯·托尔贝恩进行了著名的单挑，最终虽败犹荣，展现了兽人的荣誉。</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">大地的裂变</div>
+                        <h3 class="timeline-title">血环的抉择</h3>
+                        <p>面对灭世者奥妮克希亚的阴谋，萨鲁法尔拒绝与其合作，毅然决定牺牲自己的儿子莫尔戈，以换取部落的生存。</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">军团再临</div>
+                        <h3 class="timeline-title">破碎大厅的最后一战</h3>
+                        <p>在破碎大厅的最终决战中，萨鲁法尔为了保护联军撤退，独自一人对抗阿古斯堡的恶魔领主们，最终壮烈牺牲。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="container">
+            <div class="section-title">
+                <h2>经典战役与瞬间</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/saurfang_battle1/400/300" alt="黑石山战役">
+                    <div class="gallery-caption">黑石山决战</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/saurfang_battle2/400/300" alt="血环家族">
+                    <div class="gallery-caption">血环的誓言</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/saurfang_battle3/400/300" alt="破碎大厅">
+                    <div class="gallery-caption">破碎大厅守卫</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/saurfang_battle4/400/300" alt="奥格瑞玛">
+                    <div class="gallery-caption">奥格瑞玛的旗帜</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" style="background-color: #e8e4d9;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>玩家常见问题</h2>
+                </div>
+                <div class="faq-container">
+                    <details>
+                        <summary>萨鲁法尔在《魔兽世界》游戏中是否有可玩角色？</summary>
+                        <div class="faq-content">
+                            <p>在《魔兽世界》正式服中，玩家无法直接创建名为“萨鲁法尔”的角色。但是，萨鲁法尔作为NPC是游戏剧情的核心人物，并且在特定的世界任务或剧情任务中，玩家可能会扮演他的副手或继承他的意志进行战斗。</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>萨鲁法尔和萨尔是什么关系？</summary>
+                        <div class="faq-content">
+                            <p>他们之间是亦师亦友的关系。萨尔是曾经的部落大酋长，而萨鲁法尔是他的副官和最信任的将领。萨尔在兽人堕落时期给予了萨鲁法尔精神上的指引，帮助他找回自我，而萨鲁法尔则一直是萨尔最坚实的后盾。</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>萨鲁法尔为什么会加入联盟？</summary>
+                        <div class="faq-content">
+                            <p>这主要发生在《大地的裂变》版本中。当时部落被奥妮克希亚（伪装成希尔瓦娜斯）控制，萨鲁法尔为了阻止她利用部落在世界之魂战争中毁灭艾泽拉斯，选择了背叛部落的当前领导层，转而与联盟合作。</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>他的儿子莫尔戈的命运如何？</summary>
+                        <div class="faq-content">
+                            <p>莫尔戈·萨鲁法尔在《大地的裂变》剧情中因被奥妮克希亚控制而发狂，萨鲁法尔为了保护部落的未来，不得不亲手击杀了自己的儿子。这一事件极大地影响了萨鲁法尔，也成为了玩家讨论度极高的剧情之一。</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">资料来源</a>
+                <a href="#">联系站长</a>
+                <a href="#">免责声明</a>
+            </div>
+            <p>&copy; 2023 魔兽角色百科网. 保留所有权利. 本站内容仅供学习与参考，非暴雪娱乐官方页面。</p>
+            <p>魔兽世界、暴雪娱乐及其商标均为暴雪娱乐公司的注册商标。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
